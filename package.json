@@ -1,0 +1,21 @@
+{
+  "name": "playwright-poc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedromaresteves/playwright-poc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pedromaresteves/playwright-poc/issues"
+  },
+  "homepage": "https://github.com/pedromaresteves/playwright-poc#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.25.2"
+  }
+}
