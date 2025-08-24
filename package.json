@@ -16,6 +16,6 @@
   },
   "homepage": "https://github.com/pedromaresteves/playwright-poc#readme",
   "devDependencies": {
-    "@playwright/test": "^1.25.2"
+    "@playwright/test": "^1.55.0"
   }
 }
