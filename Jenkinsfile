@@ -38,9 +38,12 @@ pipeline {
                     }
                     stage('Run the Playwright tests') {
                         steps {
-                            bat """
-                            docker run --rm -v %WORKSPACE%:%WORKSPACE% -w %WORKSPACE% mcr.microsoft.com/playwright:v1.55.0 npx playwright test --shard=${SHARD_INDEX}/2 --config=playwright.actions.config.ts
-                            """
+                            script {
+                                def workspaceUnix = "${env.WORKSPACE}".replaceAll('\\\\', '/').replaceAll('^([A-Za-z]):', '/$1')
+                                bat """
+                                docker run --rm -v ${workspaceUnix}:${workspaceUnix} -w ${workspaceUnix} mcr.microsoft.com/playwright:v1.55.0 npx playwright test --shard=${SHARD_INDEX}/2 --config=playwright.actions.config.ts
+                                """
+                            }
                         }
                     }
                     stage('Archive blob report') {
