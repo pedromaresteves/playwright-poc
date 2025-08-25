@@ -10,8 +10,10 @@ pipeline {
                     }
                 }
                 agent { 
-                    label "${SHARD_INDEX == '1' ? 'Built-In Node' : 'docker_pw'}"
-                 }
+                    docker {
+                        image 'mcr.microsoft.com/playwright:v1.55.0'
+                    }
+}
                 stages {
                     stage('Checkout') {
                         steps {
