@@ -48,7 +48,7 @@ pipeline {
                     }
                     stage('Archive blob report') {
                         steps {
-                            archiveArtifacts artifacts: 'blob-report/**', allowEmptyArchive: true
+                            archiveArtifacts artifacts: "blob-report-${SHARD_INDEX}/**", allowEmptyArchive: true
                         }
                     }
                 }
