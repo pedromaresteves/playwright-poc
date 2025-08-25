@@ -46,6 +46,11 @@ pipeline {
                             }
                         }
                     }
+                    stage('Prepare blob report') {
+                        steps {
+                            bat "xcopy blob-report blob-report-${SHARD_INDEX} /E /I"
+                        }
+                    }
                     stage('Archive blob report') {
                         steps {
                             archiveArtifacts artifacts: "blob-report-${SHARD_INDEX}/**", allowEmptyArchive: true
