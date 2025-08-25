@@ -10,6 +10,11 @@ pipeline {
                     }
                 }
                 stages {
+                    stage('Cleanup Git Lock') {
+                        steps {
+                            bat 'del /f /q .git\\index.lock'
+                        }
+                    }
                     stage('Checkout') {
                         steps {
                             checkout scm
