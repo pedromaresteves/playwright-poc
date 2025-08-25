@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     stages {
         stage('Test Matrix') {
             matrix {
@@ -13,7 +13,7 @@ pipeline {
                     docker {
                         image 'mcr.microsoft.com/playwright:v1.55.0'
                     }
-}
+                }
                 stages {
                     stage('Checkout') {
                         steps {
@@ -38,7 +38,11 @@ pipeline {
                     }
                     stage('Run the Playwright tests') {
                         steps {
-                            bat "npx playwright test --shard=${SHARD_INDEX}/2 --config=playwright.actions.config.ts"
+                            script {
+                                docker.image('mcr.microsoft.com/playwright:v1.55.0').inside('-v $WORKSPACE:$WORKSPACE') {
+                                    bat "npx playwright test --shard=${SHARD_INDEX}/2 --config=playwright.actions.config.ts"
+                                }
+                            }
                         }
                     }
                     stage('Archive blob report') {
