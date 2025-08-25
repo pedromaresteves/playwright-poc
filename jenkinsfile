@@ -10,7 +10,7 @@ pipeline {
                     }
                     axis {
                         name: 'AGENT_LABEL'
-                        values: 'win-vm-1', 'win-vm-2'
+                        values: 'Built-In Node', 'docker_pw'
                     }
                 }
                 stages {
