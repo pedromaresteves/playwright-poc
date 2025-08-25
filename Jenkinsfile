@@ -12,7 +12,7 @@ pipeline {
                 stages {
                     stage('Cleanup Git Lock') {
                         steps {
-                            bat 'del /f /q .git\\index.lock'
+                            bat 'if exist .git\\index.lock del /f /q .git\\index.lock'
                         }
                     }
                     stage('Checkout') {
