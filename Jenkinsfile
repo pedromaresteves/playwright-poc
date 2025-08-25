@@ -5,8 +5,8 @@ pipeline {
             matrix {
                 axes {
                     axis {
-                        name: 'SHARD_INDEX'
-                        values: '1 2'
+                        name 'SHARD_INDEX'
+                        values '1', '2'
                     }
                 }
                 agent { 
