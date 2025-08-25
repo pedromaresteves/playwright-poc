@@ -6,7 +6,7 @@ pipeline {
                 axes {
                     axis {
                         name: 'SHARD_INDEX'
-                        values: '1', '2'
+                        values: '1 2'
                     }
                 }
                 agent { 
