@@ -8,11 +8,10 @@ pipeline {
                         name: 'SHARD_INDEX'
                         values: ['1', '2']
                     }
-                    axis {
-                        name: 'AGENT_LABEL'
-                        values: ['Built-In Node', 'docker_pw']
-                    }
                 }
+                agent { 
+                    label "${SHARD_INDEX == '1' ? 'Built-In Node' : 'docker_pw'}"
+                 }
                 stages {
                     stage('Checkout') {
                         agent { label "${AGENT_LABEL}" }
