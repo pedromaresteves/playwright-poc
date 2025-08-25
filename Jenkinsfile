@@ -9,11 +9,6 @@ pipeline {
                         values '1', '2'
                     }
                 }
-                agent { 
-                    docker {
-                        image 'mcr.microsoft.com/playwright:v1.55.0'
-                    }
-                }
                 stages {
                     stage('Checkout') {
                         steps {
