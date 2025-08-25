@@ -6,11 +6,11 @@ pipeline {
                 axes {
                     axis {
                         name: 'SHARD_INDEX'
-                        values: 1, 2
+                        values: ['1', '2']
                     }
                     axis {
                         name: 'AGENT_LABEL'
-                        values: 'Built-In Node', 'docker_pw'
+                        values: ['Built-In Node', 'docker_pw']
                     }
                 }
                 stages {
