@@ -6,7 +6,7 @@ pipeline {
                 axes {
                     axis {
                         name: 'SHARD_INDEX'
-                        values: ['1', '2']
+                        values: '1', '2'
                     }
                 }
                 agent { 
@@ -14,7 +14,6 @@ pipeline {
                  }
                 stages {
                     stage('Checkout') {
-                        agent { label "${AGENT_LABEL}" }
                         steps {
                             checkout scm
                         }
