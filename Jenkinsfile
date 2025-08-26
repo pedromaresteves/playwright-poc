@@ -56,6 +56,11 @@ pipeline {
                             archiveArtifacts artifacts: "blob-report-${SHARD_INDEX}/**", allowEmptyArchive: true
                         }
                     }
+                    stage('Cleanup Git Lock again') {
+                        steps {
+                            bat 'if exist .git\\index.lock del /f /q .git\\index.lock'
+                        }
+                    }
                 }
             }
         }
