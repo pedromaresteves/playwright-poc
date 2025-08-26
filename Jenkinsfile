@@ -48,7 +48,7 @@ pipeline {
                     }
                     stage('Prepare blob report') {
                         steps {
-                            bat "xcopy blob-report blob-report-${SHARD_INDEX} /E /I"
+                            bat "xcopy blob-report blob-report-${SHARD_INDEX} /E /I /Y"
                         }
                     }
                     stage('Archive blob report') {
